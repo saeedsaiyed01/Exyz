@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +9,18 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const pressStart2P = Press_Start_2P({
+  variable: "--font-press-start-2p",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
+  weight: ["400", "800"],
   subsets: ["latin"],
 });
 
@@ -24,8 +36,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Atomos:wght@400&display=swap" rel="stylesheet" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable} ${orbitron.variable} font-atomos antialiased`}
       >
         {children}
       </body>

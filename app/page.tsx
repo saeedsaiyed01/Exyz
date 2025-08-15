@@ -1,103 +1,142 @@
-import Image from "next/image";
+import Button from './components/Button';
+import CollectionSection from './components/CollectionSection';
+import Footer from './components/Footer';
+import Leaderboard, { LeaderboardRow } from './components/Leaderboard';
+import Navbar from './components/Navbar';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const leaderboardRows: LeaderboardRow[] = [
+    { id: 1, logoSrc: '/Image/1stteamlogo.png', teamName: 'REALTECH', score: 17, rewardSol: undefined },
+    { id: 2, logoSrc: '/Image/2stteamlogo.png', teamName: 'PSYCHO AZOO', score: 15, rewardSol: 30 },
+    { id: 3, logoSrc: '/Image/3thteamlogo.png', teamName: 'SSTS', score: 8, rewardSol: 25 },
+    { id: 4, logoSrc: '/Image/4thteamlogo.png', teamName: '38TH ARMA', score: 11, rewardSol: 25 },
+  ];
+  const skullSrc = '/Image/skull.png';
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen bg-[#000D18] text-white font-mono relative overflow-hidden">
+      
+      {/* Main Content Container */}
+      <div className="relative z-10 min-h-screen flex flex-col">
+        
+        {/* Navbar Component */}
+        <Navbar />
+
+        {/* Main Content Section */}
+        <div className="flex-1 flex items-center justify-center px-8 pt-32">
+          {/* Main Content Container */}
+          <div className="w-[1147px] h-[648px] relative mt-14">
+            
+            {/* Center Content - Main Title, Description, Button */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center max-w-6xl z-10 ">
+              {/* Main Title - Atomos font with hollow/outlined appearance */}
+              <h1 className="font-atomos text-transparent bg-clip-text bg-gradient-to-r from-white to-white mb-6 text-[84px] leading-[80px] font-bold whitespace-nowrap" style={{
+                WebkitTextStroke: '2px white'
+              }}>
+                EXPLORE NFT COLLECTION
+              </h1>
+              
+              {/* Description - Voltec font with proper italic styling */}
+              <p className="text-[23px] text-white/90 italic mb-8 leading-relaxed max-w-2xl mx-auto font-voltec">
+                A collection of 2525 highly-fashionable NFTs on the ETH Blockchain. Unique, metaverse-ready, and designed to benefit their holders.
+              </p>
+              
+              {/* Start Game Button - Orbitron font */}
+              <Button className="font-orbitron" size="sm" >
+                START GAME
+              </Button>
+            </div>
+
+            {/* Left Side Info Panels */}
+            <div className="absolute left-0 top-0 space-y-48">
+              {/* DSP and FPS Panel with edge */}
+              <div className="relative">
+                {/* Edge design for DSP/FPS panel */}
+                <div className="absolute -top-2 -left-2 w-4 h-4 border-l-2 border-t-2 border-white"></div>
+                <div className="px-6 py-4 space-y-4">
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">DSP: 1787 X 979</div>
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">FPS: 67.90</div>
+                </div>
+              </div>
+              
+              {/* ///: 0.20 Panel */}
+              <div className="text-green-400 font-orbitron text-[8px] leading-relaxed pl-6 font-light tracking-[0.08em]">///: 0.20</div>
+              
+              {/* EVO and VERS Panel with edge */}
+              <div className="relative">
+                {/* Edge design for EVO/VERS panel */}
+                <div className="absolute -bottom-2 -left-2 w-4 h-4 border-l-2 border-b-2 border-white"></div>
+                <div className="px-6 py-4 space-y-4">
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">EVO: Alpha</div>
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">VERS: 01.08.84</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side Info Panels */}
+            <div className="absolute right-0 top-0 space-y-48">
+              {/* Date and Time Panel with edge */}
+              <div className="relative">
+                {/* Edge design for Date/Time panel */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 border-r-2 border-t-2 border-white"></div>
+                <div className="px-6 py-4 space-y-4 text-right">
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">10-08-2225:DATE</div>
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">02:56:20 TIME</div>
+                </div>
+              </div>
+              
+              {/* 0.49 :\\ Panel */}
+              <div className="text-green-400 font-orbitron text-[8px] leading-relaxed text-right pr-6 font-light tracking-[0.08em]">0.49 :\\</div>
+              
+              {/* LOG Panel with edge */}
+              <div className="relative">
+                {/* Edge design for LOG panel */}
+                <div className="absolute -bottom-2 -right-2 w-4 h-4 border-r-2 border-b-2 border-white"></div>
+                <div className="px-6 py-4 space-y-4 text-right">
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">74.926 :LOG</div>
+                  <div className="text-green-400 font-orbitron text-[8px] leading-relaxed font-light tracking-[0.08em]">Win11 Chrome/138.0.0.0:SYS</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      
+      {/* Bottom Grid Image - Below main content */}
+      <div className="relative w-full h-[50vh] mt-6">
+        {/* Top fade gradient (background -> transparent) behind the line */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#000D18] via-[#000D18]/70 to-transparent z-10 pointer-events-none"></div>
+
+        {/* #FF6348 halo ABOVE the line (does not overlap the line) */}
+        <div className="absolute -top-6 left-0 right-0 z-20 pointer-events-none ">
+          <div className="h-6 w-full bg-gradient-to-t from-[#FF6348]/35 via-[#FF6348]/15 to-transparent"></div>
+        </div>
+
+        {/* Line image flush at the top; keep its intrinsic thin thickness */}
+        <img
+          src="/Image/line.png"
+          alt="Neon glow overlay"
+          className="absolute top-0 left-0 w-full h-auto object-contain z-30 pointer-events-none select-none mt-[-100px]"
+        />
+
+        {/* #FF6348 glow BELOW the line (starts just under the line) */}
+        <div className="absolute top-[6px] left-0 right-0 z-20 pointer-events-none">
+          <div className="h-12 w-full bg-gradient-to-b from-[#FF6348]/55 via-[#FF6348]/30 to-transparent"></div>
+        </div>
+
+        {/* Grid image */}
+        <img 
+          src="/Image/bottomimg.png" 
+          alt="Retro-futuristic grid pattern"
+          className="w-full h-full object-cover object-top opacity-100 z-0"
+        />
+      </div>
+
+      <CollectionSection />
+
+      <Leaderboard rows={leaderboardRows} skullSrc={skullSrc} />
+
+      <Footer leftLabel="WEB3REE" rightLabel="ALL RIGHTS RESERVED" />
     </div>
   );
 }
