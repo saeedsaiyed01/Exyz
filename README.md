@@ -1,6 +1,18 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Approach
+
+- Fonts are loaded locally in `app/globals.css` with `@font-face` and utility classes like `font-atomos`, `font-atomos-solid`, `font-voltec`, `font-megaton` 
+- then i used it whenever the font needed properly 
+- i made all the component diffrenet for the reuseable purpose like card, leaderboard etc... 
+- made the object for the data so it can be changable easily
+
+### How to change common items
+- I made the object for the all data in each file so it will be easy to change.
+- Hero title/description/button: edit `pageContent.hero` in `app/page.tsx`.
+- for each section/component
+
+
 
 First, run the development server:
 
