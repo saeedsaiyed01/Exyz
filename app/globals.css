@@ -25,6 +25,18 @@
   font-display: swap;
 }
 
+/* Atomos Filled Font Face - provide the solid version files in /public/font */
+@font-face {
+  font-family: 'AtomosFilled';
+  src: url('/font/Atomos-Regular.otf') format('opentype'),
+       url('/font/Atomos-Regular.ttf') format('truetype'),
+       url('/font/Atomos-Regular.woff2') format('woff2'),
+       url('/font/Atomos-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Megaton Font Face - Local file */
 @font-face {
   font-family: 'Megaton';
@@ -45,6 +57,13 @@
   font-style: normal;
   letter-spacing: 0%;
   text-transform: none;
+}
+
+/* Atomos filled utility: renders solid white fill (requires Atomos-Regular files) */
+.font-atomos-solid {
+  font-family: 'AtomosFilled', 'Atomos', monospace;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .font-orbitron {
